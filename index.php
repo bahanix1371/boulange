@@ -25,8 +25,9 @@
             elseif($_GET['action']=="card"){  //OK
                 afficherCardOrdinateurs();
             }
-            elseif($_GET['action'] == 'modifier'){ //OK
-                modifierOrdinateur($_GET['id']);
+            elseif($_GET['action'] == 'addpanier'){ //OK
+                echo "Ajouter panier id=".$_GET['id'];
+                ajouerterOrdinateurPanier($_GET['id']);
             }
             else {
                 echo "La page n'existe pas";

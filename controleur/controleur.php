@@ -36,10 +36,18 @@
             $ordis=lireOrdinateurById($id);
             require "vue/modifierOrdinateur.php";
         }
-        function modifiervalidationOrdinateur(){
-            afficherTableau($_POST,"POST");
-            echo "Modifier VALIDATION ORDINATEUR id<br>";
-            modificationOrdinateurBD($_POST['id'],$_POST['denomination'], $_POST['processeur'],$_POST['prix'],$_POST['ecran'],$_POST['vive'],$_POST['image'],$_POST['lien']);
-            header("Location: index.php?action=tab");
+        function ajouerterOrdinateurPanier($id){
+            echo "controleur ajouerterOrdinateurPanier id=".$id;
+            if(!isset($_SESSION['ordi'])){
+                $_SESSION['ordi'] = array();
+            }
+            if(in_array($id, $_SESSION['ordi'])){
+                echo $id." est déjà commander<br>";
+            }
+            else {
+                $_SESSION['ordi'][]=$id;
+            }
+            afficherTableau($_SESSION['ordi'],"SESSION['ordi']");
+            header("Location: index.php?action=card");
         }
 ?>
