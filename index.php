@@ -29,6 +29,12 @@
                 echo "Ajouter panier id=".$_GET['id'];
                 ajouerterOrdinateurPanier($_GET['id']);
             }
+            elseif($_GET['action'] == 'panier'){ //OK
+                echo "Voir commande";
+                if(isset($_SESSION['ordi']))
+                    afficherCommande();
+                else echo "La session n'existe pas";
+            }
             else {
                 echo "La page n'existe pas";
             } 

@@ -50,4 +50,15 @@
             afficherTableau($_SESSION['ordi'],"SESSION['ordi']");
             header("Location: index.php?action=card");
         }
+        function afficherCommande(){
+            foreach($_SESSION['ordi'] as $id){
+                $ordis[]=lireOrdinateurById($id);
+            }
+            if(isset($ordis)){
+                if(count($ordis) > 0)
+                    require "vue/afficherCommande.php";
+            }
+            else
+                header("Location: index.php?action=card");
+        }
 ?>
