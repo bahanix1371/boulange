@@ -8,9 +8,9 @@
             $tabOrdinateurs=lireOrdinateurs();
             require "vue/afficherOrdinateurs.php";
         }
-        function modifierOrdinateur($id){
-            echo "Modifier ORDINATEUR id=".$id."<br>";
+        function supprimerOrdinateur($id){
+            supprimerOrdinateurBD($id);
             $ordis=lireOrdinateurById($id);
-            require "vue/modifierOrdinateur.php";
-        }   
+            header("Location: index.php?action=tab");
+        }
 ?>

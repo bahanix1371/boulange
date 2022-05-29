@@ -10,3 +10,23 @@ require_once "connexion.php";
         $req->closeCursor();
         return $ordi;
     }
+
+    function supprimerOrdinateurBD($id){
+        $pdo = getPdo();
+        $req = "Delete from ordi where id = :idOrdinateur";
+        $stmt = $pdo->prepare($req);
+        $stmt->bindValue(":idOrdinateur",$id,PDO::PARAM_INT);
+        $resultat = $stmt->execute();
+        $stmt->closeCursor();
+        if($resultat > 0){
+            echo "ordis supprimer id=".$id."<br>";
+        }
+    }
+
+    function supprimerTousOrdinateurs(){
+        $pdo = getPdo();
+        $req = "Delete from ordis";
+        $stmt = $pdo->prepare($req);
+        $nbr = $stmt->execute();
+        return $nbr;
+    }
