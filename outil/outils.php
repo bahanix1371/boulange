@@ -15,4 +15,20 @@ function afficherChaine($chaine, $titre){
     echo "<hr>";
 }
 
+function ajouterImage($file, $dir){
+    $random = rand(0,99999);
+    $target_file = $dir.$random."_".$file['name'];
+    move_uploaded_file($file['tmp_name'], $target_file);
+    return $random."_".$file['name'];
+}
+
+function sousChaineTaille($chaine,$taille){
+    if(strlen($chaine) >= $taille)
+        $sousChaine = substr($chaine, 0, $taille)."...";
+    else {
+        $bouchon = str_repeat(" ", $taille-strlen($chaine));
+        $sousChaine = $chaine;
+    }
+    return $sousChaine;
+}
 ?>

@@ -1,5 +1,6 @@
 <?php ob_start()?>
 <?php require_once "model/OrdinateurManager.php"; ?>
+<?php //afficherTableau($tabOrdinateurs,"tabOrdinateurs"); ?>
 
 <div class="container">
     <table class="table table-striped">

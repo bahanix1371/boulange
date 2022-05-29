@@ -16,6 +16,12 @@
             else if($_GET['action'] == 'lire'){ //OK
                 afficherOrdinateur($_GET['id']);
             }
+            elseif($_GET['action'] == 'creer'){ //OK
+                creerOrdinateur();
+            }
+            elseif($_GET['action'] == 'valid-creer'){ //OK
+                creerValidationOrdinateur();
+            }
             else {
                 echo "La page n'existe pas";
             } 
