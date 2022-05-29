@@ -36,4 +36,10 @@
             $ordis=lireOrdinateurById($id);
             require "vue/modifierOrdinateur.php";
         }
+        function modifiervalidationOrdinateur(){
+            afficherTableau($_POST,"POST");
+            echo "Modifier VALIDATION ORDINATEUR id<br>";
+            modificationOrdinateurBD($_POST['id'],$_POST['denomination'], $_POST['processeur'],$_POST['prix'],$_POST['ecran'],$_POST['vive'],$_POST['image'],$_POST['lien']);
+            header("Location: index.php?action=tab");
+        }
 ?>
