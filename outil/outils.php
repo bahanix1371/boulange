@@ -9,4 +9,10 @@ function afficherTableau($tab,$titre){
     echo "<hr>";
 }
 
+function afficherChaine($chaine, $titre){
+    echo "<p>".$titre."</p>";
+    echo "Chaine = ". $chaine . "<br>";
+    echo "<hr>";
+}
+
 ?>
