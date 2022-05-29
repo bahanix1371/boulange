@@ -27,4 +27,9 @@
             ajouterOrdinateurBd($_POST['denomination'], $_POST['processeur'],$_POST['prix'],$_POST['ecran'],$_POST['vive'],$nomImageAjoute,$_POST['lien']);
             header("Location: index.php?action=tab");
         }
+        function modifierOrdinateur($id){
+            echo "Modifier ORDINATEUR id=".$id."<br>";
+            $ordis=lireOrdinateurById($id);
+            require "vue/modifierOrdinateur.php";
+        }
 ?>
