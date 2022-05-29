@@ -11,6 +11,17 @@ require_once "connexion.php";
         return $ordi;
     }
 
+    function lireOrdinateurById($id){
+        $pdo = getPdo();
+        $req = "SELECT * FROM ordi WHERE id=:id";
+        $stmt = $pdo->prepare($req);
+        $stmt->bindValue(":id",$id,PDO::PARAM_STR);
+        $cpt = $stmt->execute();
+        $ordis = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();  
+        return $ordis;
+    }
+
     function supprimerOrdinateurBD($id){
         $pdo = getPdo();
         $req = "Delete from ordi where id = :idOrdinateur";

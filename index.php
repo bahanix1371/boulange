@@ -13,6 +13,12 @@
             elseif($_GET['action'] == 'suppr'){ //OK
                 supprimerOrdinateur($_GET['id']);
             }
+            else if($_GET['action'] == 'lire'){ //OK
+                afficherOrdinateur($_GET['id']);
+            }
+            else {
+                echo "La page n'existe pas";
+            } 
     }
     else {
         echo "La page n'existe pas";
