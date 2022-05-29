@@ -25,6 +25,17 @@
             elseif($_GET['action']=="card"){  //OK
                 afficherCardOrdinateurs();
             }
+            elseif($_GET['action'] == 'modifier'){ //OK
+                modifierOrdinateur($_GET['id']);
+            }
+            elseif($_GET['action'] == 'valid-modifier'){//OK
+                echo "Modifier validation";
+                modifierValidationOrdinateur();
+            }
+            elseif($_GET['action'] == 'addpanier'){ //OK
+                echo "Ajouter panier id=".$_GET['id'];
+                ajouerterOrdinateurPanier($_GET['id']);
+            }
             elseif($_GET['action'] == 'panier'){ //OK
                 echo "Voir commande";
                 if(isset($_SESSION['ordi']))

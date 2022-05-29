@@ -61,3 +61,26 @@ require_once "connexion.php";
         $nbr = $stmt->execute();
         return $nbr;
     }
+
+    function modificationOrdinateurBD($id,$denomination,$processeur,$prix,$ecran,$vive,$image,$lien){
+        $pdo = getPdo();
+        $req = "
+        update ordi 
+        set denomination = :denomination, processeur = :processeur, prix = :prix, ecran = :ecran, vive = :vive, image = :image, lien = :lien
+        where id = :id";
+        $stmt = $pdo->prepare($req);
+        $stmt->bindValue(":id",$id,PDO::PARAM_INT);
+        $stmt->bindValue(":denomination",$denomination,PDO::PARAM_STR);
+        $stmt->bindValue(":processeur",$processeur,PDO::PARAM_STR);
+        $stmt->bindValue(":prix",$prix,PDO::PARAM_INT);
+        $stmt->bindValue(":ecran",$ecran,PDO::PARAM_STR);
+        $stmt->bindValue(":vive",$vive,PDO::PARAM_STR);
+        $stmt->bindValue(":image",$image,PDO::PARAM_STR);
+        $stmt->bindValue(":lien",$lien,PDO::PARAM_STR);
+        $resultat = $stmt->execute();
+        $stmt->closeCursor();
+
+        if($resultat > 0){
+            echo "ordi modifier id=".$id."<br>";
+        }
+    }
