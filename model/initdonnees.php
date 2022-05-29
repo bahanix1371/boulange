@@ -135,8 +135,22 @@
   );
   $tabOrdis[]=$ordi;
   //afficherTableau($tabOrdis,"Tableau ordinateurs");
-  function getTabOrdis(){
-    global $tabOrdis;
-    return $tabOrdis;
+  supprimerTousOrdinateurs();
+  for($i=0; $i<count($tabOrdinateurs); $i++) {     
+      ajouerOrdinateurBd($tabOrdinateurs[$i]['denomination'],$tabOrdinateurs[$i]['processeur'],$tabOrdinateurs[$i]['prix'],$tabOrdinateurs[$i]['ecran'],$tabOrdinateurs[$i]['vive'],$tabOrdinateurs[$i]['image'],$tabOrdinateurs[$i]['lien']);
   }
+
+/*
+
+    afficherTableau($tabOrdis,"Tableau ordinateurs");
+    function getTabOrdis(){
+        global $tabOrdis;
+        return $tabOrdis;
+    }
+  
+*/
+
+?>
+
+
   
